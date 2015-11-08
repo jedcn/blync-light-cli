@@ -1,0 +1,28 @@
+{
+  "name": "blync-cli",
+  "version": "1.0.0",
+  "description": "Command Line Interface for a Blync Light",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blync",
+    "cli",
+    "status"
+  ],
+  "author": "jedcn",
+  "license": "MIT",
+  "dependencies": {
+    "node-hid": "^0.5.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedcn/blync-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jedcn/blync-cli/issues"
+  },
+  "homepage": "https://github.com/jedcn/blync-cli#readme"
+}
