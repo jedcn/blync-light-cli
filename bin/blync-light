@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 
-const blyncCore = require('blync-core');
-const blyncLight = blyncCore.findFirstBlyncLight();
-const color = process.argv[3];
-blyncLight
-  .setColor(color)
-  .catch(function(error) {
-    console.log('Error ' + error.message);
-  });
+// Parse out the args
+var argv = require('minimist')(process.argv.slice(2));
+
+// The first argument determines which module to require. We presume
+// the require() will return a single function..
+const functionToRun = require('../lib/' + argv._[0]);
+
+// And this function is passed a reference to the parsed out arguments
+// and the blync light.
+const core = require('blync-core');
+const light = core.findFirstBlyncLight();
+functionToRun({
+  light: light,
+  argv: argv
+});
