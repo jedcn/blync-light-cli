@@ -14,7 +14,10 @@
   "author": "jedcn",
   "license": "MIT",
   "dependencies": {
-    "node-hid": "^0.5.1"
+    "blync-core": "^0.1.0"
+  },
+  "bin": {
+    "blync-light": "./bin/blync-light"
   },
   "devDependencies": {},
   "repository": {

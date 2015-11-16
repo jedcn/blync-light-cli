@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+const blyncCore = require('blync-core');
+const blyncLight = blyncCore.findFirstBlyncLight();
+const color = process.argv[3];
+blyncLight
+  .setColor(color)
+  .catch(function(error) {
+    console.log('Error ' + error.message);
+  });
