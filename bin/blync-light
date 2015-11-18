@@ -10,8 +10,9 @@ const functionToRun = require('../commands/' + argv._[0]);
 // And this function is passed a reference to the parsed out arguments
 // and the blync light.
 const core = require('blync-core');
-const light = core.findFirstBlyncLight();
+const lights = core.findAllBlyncLights();
 functionToRun({
-  light: light,
+  lights: lights,
+  light: lights[0],
   argv: argv
 });
