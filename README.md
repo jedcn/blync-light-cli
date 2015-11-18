@@ -24,7 +24,7 @@ shell interpreting the `#` as a comment:
 
 ### `blync-light cycle`
 
-*Set the light to cycle between several colors.*
+*Make the light cycle between several colors.*
 
 ```shell
 # Cycle between purple and blue, one time. Rest on each color for a
@@ -36,4 +36,20 @@ blync-light cycle --colors 'purple blue'
 # Cycle between two colors, 10 times, and rest for two hundred
 # milliseconds on each color.
 blync-light cycle --colors 'blue white' --cycleTime 200 --totalCycles 10
+```
+
+### `blync-light change`
+
+*Make the light change from one color to another.*
+
+```shell
+# Change from red to blue, over the course of 10 transitions, with
+# each transition taking 1000 milliseconds
+blync-light change --fromColor red --toColor blue --totalSteps 10 --stepTime 1000
+```
+
+```shell
+# Change from one shade of green to another, over the course of 20
+# transitions, with each transition transition taking 200 milliseconds
+blync-light change --fromColor limegreen --toColor green --totalSteps 10 --stepTime 200
 ```
