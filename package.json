@@ -1,5 +1,5 @@
 {
-  "name": "blync-cli",
+  "name": "blync-light-cli",
   "version": "1.0.0",
   "description": "Command Line Interface for a Blync Light",
   "main": "index.js",
@@ -8,13 +8,14 @@
   },
   "keywords": [
     "blync",
+    "embrava",
     "cli",
     "status"
   ],
   "author": "jedcn",
   "license": "MIT",
   "dependencies": {
-    "blync-core": "^0.1.0",
+    "blync-core": "^0.2.0",
     "minimist": "^1.2.0"
   },
   "bin": {
@@ -23,10 +24,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jedcn/blync-cli.git"
+    "url": "git+https://github.com/jedcn/blync-light-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/jedcn/blync-cli/issues"
+    "url": "https://github.com/jedcn/blync-light-cli/issues"
   },
-  "homepage": "https://github.com/jedcn/blync-cli#readme"
+  "homepage": "https://github.com/jedcn/blync-light-cli#readme"
 }

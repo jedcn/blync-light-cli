@@ -1,5 +1,3 @@
-# Blync CLI
-
 ## Usage
 
 ### `blync-light color`
