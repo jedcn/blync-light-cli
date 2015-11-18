@@ -5,7 +5,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 // The first argument determines which module to require. We presume
 // the require() will return a single function..
-const functionToRun = require('../lib/' + argv._[0]);
+const functionToRun = require('../commands/' + argv._[0]);
 
 // And this function is passed a reference to the parsed out arguments
 // and the blync light.
