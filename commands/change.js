@@ -7,24 +7,34 @@ function noSmallerNoBigger(number, smallest, biggest) {
   return Math.min(Math.max(number, smallest), biggest);
 }
 
+function findShift(start, end, steps) {
+  const roundedUpAbsDiff = Math.ceil(Math.abs(start - end) / steps);
+  let direction = 1;
+  if (start > end) {
+    direction = -1;
+  }
+  return direction * roundedUpAbsDiff;
+}
+
 function determineColors(fromColor, toColor, totalSteps) {
   const fromRGB = colorLookup(fromColor);
   const toRGB = colorLookup(toColor);
+  const redShift = findShift(fromRGB[0], toRGB[0], totalSteps);
+  const greenShift = findShift(fromRGB[1], toRGB[1], totalSteps);
+  const blueShift = findShift(fromRGB[2], toRGB[2], totalSteps);
 
-  const redShift = -1 * Math.ceil((fromRGB[0] - toRGB[0])/ totalSteps);
-  const greenShift = -1 * Math.ceil((fromRGB[1] - toRGB[1])/ totalSteps);
-  const blueShift = -1 * Math.ceil((fromRGB[2] - toRGB[2])/ totalSteps);
-
-  let currentColor = [ fromRGB[0], fromRGB[1], fromRGB[2] ];
-  const colors = [ currentColor ];
+  const colors = [];
+  const firstColor = [ fromRGB[0], fromRGB[1], fromRGB[2] ];
+  const lastColor = [ toRGB[0], toRGB[1], toRGB[2] ];
+  let currentColor = firstColor;
+  colors.push(firstColor);
   for(let i = 0; i < totalSteps; i++) {
     let newColor = [ noSmallerNoBigger(currentColor[0] + redShift, 0, 255),
                      noSmallerNoBigger(currentColor[1] + greenShift, 0, 255),
                      noSmallerNoBigger(currentColor[2] + blueShift, 0, 255) ];
     colors.push(newColor);
-    currentColor = newColor;
+    currentColor = newColor
   }
-  const lastColor = [ toRGB[0], toRGB[1], toRGB[2] ];
   colors.push(lastColor);
   return colors;
 }
@@ -46,8 +56,6 @@ module.exports = function(options) {
   const toColor = argv.toColor;
   const totalSteps = argv.totalSteps;
   const stepTime = argv.stepTime;
-
   const colors = determineColors(fromColor, toColor, totalSteps);
   cycleColors(light, colors, stepTime, 1, 0);
-  light.turnOff();
 }
